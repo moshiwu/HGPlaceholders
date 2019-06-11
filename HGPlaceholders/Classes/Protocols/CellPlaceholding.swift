@@ -64,6 +64,10 @@ extension CellPlaceholding {
         actionButton?.layer.cornerRadius = style.actionCornerRadius
 
         if let _ = style.actionShadowColor {
+            
+            actionButton?.layer.cornerRadius = 0
+            actionButton?.setBackgroundImage(style.actionBackgroundImage?.image(withRoundRadius: style.actionCornerRadius), for: .normal)
+
             actionButton?.clipsToBounds = false
             actionButton?.setLayerShadow(color: style.actionShadowColor!, offset: style.actionShadowOffset, radius: style.actionShadowRadius)
         }
@@ -91,5 +95,31 @@ extension CellPlaceholding {
         placeholderImageView?.image = data?.image
 
         data?.showsLoading == true ? activityIndicator?.startAnimating() : activityIndicator?.stopAnimating()
+    }
+}
+
+extension UIImage {
+    public func image(withRoundRadius radius: CGFloat) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        guard
+            let context = UIGraphicsGetCurrentContext(),
+            let cgImage = self.cgImage
+        else { return nil }
+
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        context.scaleBy(x: 1, y: -1)
+        context.translateBy(x: 0, y: -rect.size.height)
+
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: radius)
+        path.close()
+
+        context.saveGState()
+        path.addClip()
+        context.draw(cgImage, in: rect)
+        context.restoreGState()
+
+        let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }

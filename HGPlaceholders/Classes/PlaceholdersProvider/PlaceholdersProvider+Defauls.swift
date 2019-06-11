@@ -103,7 +103,7 @@ extension PlaceholdersProvider {
 // MARK: images Utilities
 extension PlaceholdersProvider {
     
-    static func image(named name: String) -> UIImage? {
+    public static func image(named name: String) -> UIImage? {
         let image = UIImage(named: name) ?? UIImage(named: name, in: Bundle(for: self), compatibleWith: nil)
         
         return image
