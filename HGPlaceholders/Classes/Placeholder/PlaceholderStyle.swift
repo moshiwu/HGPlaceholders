@@ -8,12 +8,10 @@
 
 import UIKit
 
-
 /// PlaceholderStyle is used to customise the placeholder cell style
 public struct PlaceholderStyle {
-    
     // MARK: properties
-    
+
     /// The color of the placeholder title, the default value is darkText
     public var titleColor: UIColor = .darkText
     /// The font of the placeholder title, the default value is boldSystemFont 19
@@ -27,32 +25,38 @@ public struct PlaceholderStyle {
     public var subtitleFont = UIFont.systemFont(ofSize: 14)
     /// The text alignment of the placeholder subtitle, the default value is  NSTextAlignment.center
     public var subtitleTextAlignment = NSTextAlignment.center
-    
+
     /// The color of the action button title of the placeholder, the default value is white
     public var actionTitleColor: UIColor = .white
     /// The font of the placeholder subtitle, the default value is  boldSystemFont 17
     public var actionTitleFont = UIFont.boldSystemFont(ofSize: 17)
-    
+
+    public var actionBackgroundImage: UIImage?
+    public var actionCornerRadius: CGFloat = 0.0
+    public var actionShadowColor: UIColor?
+    public var actionShadowOffset: CGSize = .zero
+    public var actionShadowRadius: CGFloat = 0.0
+
     /// The color of the action button background of the placeholder, the default value is the tint color
     public var actionBackgroundColor: UIColor?
-    
+
     /// The color of activity indicator view of the placeholder, the default value is light gray
     public var activityIndicatorColor = UIColor.lightGray
-    
+
     /// The background color of the placeholder, the default value is clear
     public var backgroundColor = UIColor.clear
-    
+
     /// Should display the placeholder with animation or not
     public var isAnimated = true
-    
+
     /// Should display the tableViewHeader or not, the default value is false
     public var shouldShowTableViewHeader = false
-    
+
     /// Should display the tableViewFooter or not, the default value is  false
     public var shouldShowTableViewFooter = false
-    
+
     // MARK: init methods
-    
+
     /// Create and return a PlaceholderStyle object
     public init() {}
 }
