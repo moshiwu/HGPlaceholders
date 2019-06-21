@@ -31,8 +31,9 @@ public struct PlaceholderStyle {
     /// The font of the placeholder subtitle, the default value is  boldSystemFont 17
     public var actionTitleFont = UIFont.boldSystemFont(ofSize: 17)
 
-    public var actionBackgroundImage: UIImage?
     public var actionCornerRadius: CGFloat = 0.0
+    public var actionBackgroundImage: UIImage?
+    public var actionButtonContentEdgeInsets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
     public var actionShadowColor: UIColor?
     public var actionShadowOffset: CGSize = .zero
     public var actionShadowRadius: CGFloat = 0.0

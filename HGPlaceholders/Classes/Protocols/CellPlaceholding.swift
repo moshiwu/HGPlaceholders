@@ -62,6 +62,7 @@ extension CellPlaceholding {
         actionButton?.titleLabel?.font = style.actionTitleFont
         actionButton?.setBackgroundImage(style.actionBackgroundImage, for: .normal)
         actionButton?.layer.cornerRadius = style.actionCornerRadius
+        actionButton?.contentEdgeInsets = style.actionButtonContentEdgeInsets
 
         if let _ = style.actionShadowColor {
             
